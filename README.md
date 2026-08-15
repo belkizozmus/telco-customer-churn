@@ -77,8 +77,8 @@ telco-customer-churn/
 ├── README.md
 └── requirements.txt
 
+```
 Data Preprocessing
-
 The following preprocessing steps were applied:
 
 Loaded the dataset using Pandas.
@@ -111,7 +111,6 @@ Exploratory Data Analysis
 EDA was performed only on the training dataset to avoid using validation or test data during exploratory analysis.
 
 Churn Distribution
-
 The training dataset contains approximately:
 
 73.5% customers who did not churn
@@ -156,11 +155,9 @@ Credit card (automatic)	14.71%
 Customers using electronic check have the highest churn rate among the payment methods.
 
 Tenure
-
 Customers who churn generally have shorter subscription periods.
 
 Average tenure:
-
 Churn	Average Tenure
 No Churn	37.56 months
 Churn	18.38 months
@@ -168,9 +165,7 @@ Churn	18.38 months
 This indicates that customer tenure is an important factor associated with churn.
 
 Monthly Charges
-
 Average monthly charges:
-
 Churn	Average Monthly Charges
 No Churn	61.32
 Churn	75.00
@@ -178,29 +173,22 @@ Churn	75.00
 Customers who churn generally have higher monthly charges.
 
 Feature Correlation
-
 The correlation analysis showed that tenure has a negative relationship with churn:
-
 tenure - Churn correlation: -0.34
-
 This suggests that customers with longer tenure are generally less likely to churn.
 
 MonthlyCharges has a positive relationship with churn:
-
 MonthlyCharges - Churn correlation: 0.20
 
 This indicates that higher monthly charges are associated with a higher probability of churn.
 
 TotalCharges is strongly correlated with tenure:
-
 TotalCharges - tenure correlation: 0.83
 
 This is expected because total charges generally increase as the customer's tenure increases.
 
 Machine Learning Models
-
 Four classification algorithms were evaluated:
-
 Logistic Regression
 K-Nearest Neighbors (KNN)
 Decision Tree
@@ -209,36 +197,27 @@ Support Vector Machine (SVM)
 All preprocessing steps were implemented using Scikit-learn pipelines.
 
 Logistic Regression
-
 Logistic Regression was used as a linear classification model.
-
 It provides a strong and interpretable baseline for binary classification problems.
 
 K-Nearest Neighbors
-
 KNN classifies customers based on the characteristics of their nearest observations.
 
 The model was configured with:
-
 n_neighbors = 5
 Decision Tree
 
 A Decision Tree was used to model nonlinear relationships between customer characteristics and churn.
 
 The tree depth was limited to:
-
 max_depth = 5
-
 to reduce the risk of overfitting.
 
 Support Vector Machine
-
 An SVM with an RBF kernel was used to model nonlinear decision boundaries.
 
 Model Evaluation
-
 The following metrics were used:
-
 Accuracy
 Precision
 Recall
@@ -249,7 +228,6 @@ Confusion Matrix
 F1 Score was selected as the main criterion for choosing the final model because it provides a balance between Precision and Recall.
 
 Cross-Validation
-
 A 5-fold Stratified Cross-Validation strategy was used.
 
 StratifiedKFold(
@@ -265,17 +243,13 @@ Decision Tree	0.787	0.606	0.563	0.583
 SVM	0.804	0.678	0.500	0.575
 
 According to the F1 Score, Logistic Regression achieved the best overall balance between Precision and Recall.
-
 Therefore, Logistic Regression was selected as the final model.
 
 Final Model
-
 After selecting Logistic Regression, the training and validation datasets were combined.
 
 The final model was then retrained using:
-
 Training + Validation Data
-
 The model was evaluated only once on the previously unseen test dataset.
 
 Final Test Results
@@ -287,11 +261,8 @@ F1 Score	0.598
 Interpretation
 
 The final model achieved approximately 80.9% accuracy.
-
 The Precision score of approximately 67.9% means that among the customers predicted as churners, about 68% actually churned.
-
 The Recall score of approximately 53.4% means that the model identified about 53% of the customers who actually churned.
-
 The F1 Score was approximately 59.8%.
 
 Classification Report
@@ -310,7 +281,6 @@ Confusion Matrix
  [131 150]]
 
 The confusion matrix can be interpreted as follows:
-
 705 customers were correctly classified as non-churn.
 71 non-churn customers were incorrectly classified as churn.
 131 churn customers were incorrectly classified as non-churn.
@@ -319,9 +289,7 @@ The confusion matrix can be interpreted as follows:
 The main weakness of the model is that it misses 131 customers who actually churned.
 
 Results Visualization
-
 The project generates several visualizations in the results/ directory, including:
-
 Churn distribution
 Churn rate by contract
 Churn rate by internet service
@@ -349,41 +317,31 @@ GitHub
 Installation
 
 Clone the repository:
-
 git clone https://github.com/YOUR_USERNAME/telco-customer-churn.git
 
 Navigate to the project directory:
-
 cd telco-customer-churn
 
 Create a virtual environment:
-
 Windows
 python -m venv env
 
 Activate the virtual environment:
-
 .\env\Scripts\Activate.ps1
 
 Install the required dependencies:
-
 pip install -r requirements.txt
 Running the Project
 
 Run the main Python script:
-
 python src/customer_churn.py
 
 After execution, the generated charts will be saved in the:
-
 results/
-
 directory.
 
 Future Improvements
-
 Possible future improvements include:
-
 Hyperparameter tuning
 Class imbalance handling
 Threshold optimization
@@ -399,7 +357,6 @@ Conclusion
 This project demonstrates a complete machine learning workflow for customer churn prediction.
 
 The workflow includes:
-
 Data Loading
       ↓
 Data Inspection
@@ -429,13 +386,9 @@ Test Evaluation
 Confusion Matrix
 
 Among the evaluated models, Logistic Regression achieved the highest F1 Score and was selected as the final model.
-
 The final model achieved approximately 80.9% accuracy and 59.8% F1 Score on the test dataset.
-
 Although the model provides a reasonable baseline, the churn recall of approximately 53.4% indicates that there is still room for improvement, particularly in identifying customers who are likely to leave.
 
 Dataset Source
-
 The project uses the IBM Telco Customer Churn dataset.
-
 The dataset is included in the data/ directory for this project.
